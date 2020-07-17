@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="carriers" translate="label" type="text" sortOrder="320" showInDefault="1" showInWebsite="1" showInStore="1">
+            <group id="express" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Express Shipping</label>
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Title</label>
+                </field>
+                <field id="name" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Name</label>
+                </field>
+                <field id="handling_type" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Type of Handling Fee</label>
+                    <source_model>Magento\Shipping\Model\Source\HandlingType</source_model>
+                </field>
+                <field id="price" translate="label" type="text" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Value</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                    <comment>Fixed value or percent?.</comment>
+                </field>
+                <field id="sort_order" translate="label" type="text" sortOrder="9" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Sort Order</label>
+                </field>
+                <field id="regions" translate="label" type="multiselect" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Regions enabled</label>
+                    <source_model>Burst\Express\Model\Config\Source\RegionsList</source_model>
+                    <comment>Based on the store default country.</comment>
+                </field>
+                <field id="specificerrmsg" translate="label" type="textarea" sortOrder="14" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Error message</label>
+                </field>
+                <field id="categories" translate="label" type="multiselect" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>For these categories</label>
+                    <source_model>Burst\Express\Model\Config\Source\Categorylist</source_model>
+                </field>
+                <field id="days" translate="label" type="multiselect" sortOrder="16" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Days enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Locale\Weekdaycodes</source_model>
+                </field>
+                <field id="from_hour" translate="label" type="time" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="17">
+                    <label>From hour</label>
+                    <frontend_model>Burst\Express\Block\Adminhtml\System\Config\DateTime</frontend_model>
+                </field>
+                <field id="to_hour" translate="label" type="time" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="17">
+                    <label>To hour</label>
+                    <frontend_model>Burst\Express\Block\Adminhtml\System\Config\DateTime</frontend_model>
+                </field>
+                <field id="copy_to" translate="label" type="text" sortOrder="18" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Copy to</label>
+                    <comment>Send a copy to this email address.</comment>
+                    <validate>validate-email</validate>
+                </field>
+                <field id="subject" translate="label" type="text" sortOrder="19" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Subject</label>
+                    <comment>Email subject.</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
